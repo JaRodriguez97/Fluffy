@@ -15,6 +15,7 @@ section {
   justify-content: center;
   align-items: center;
   height: 100vh;
+  min-height: 100vh;
   background-image: url(assets/images/bg2.jpg);
   background-size: cover;
   background-position: center;
@@ -87,8 +88,10 @@ header ul li a.active {
 }
 
 .content {
-  height: 400px;
-  width: 45vw;
+  min-height: 400px;
+  height: max-content;
+  min-width: 45vw;
+  width: max-content;
   transform: translateX(-100px);
   box-shadow: 0 15px 30px rgba(0, 0, 0, 0.1);
   border-radius: 20px;
@@ -193,4 +196,125 @@ header ul li a.active {
 .credit a {
   text-decoration: none;
   color: #fff;
+}
+
+@media (max-width: 1200px) {
+  .container {
+    position: relative;
+    width: calc(100% - 20px);
+  }
+
+  .content {
+    padding: 30px;
+  }
+}
+@media (max-width: 992px) {
+  body {
+    overflow-y: auto;
+  }
+
+  section {
+    padding: 50px 10px 10px;
+    height: auto;
+  }
+
+  .container {
+    flex-direction: column;
+    height: auto;
+    padding: 20px;
+  }
+
+  .container .content {
+    transform: translateX(0px);
+    width: 100%;
+    padding: 30px;
+    min-height: auto;
+    margin-top: -40px;
+  }
+
+  header {
+    position: relative;
+    flex-direction: column;
+    width: 100%;
+    top: -60px;
+    right: 0;
+    left: 0;
+  }
+
+  header .logo {
+    font-weight: bolder;
+  }
+
+  header ul {
+    margin-top: 10px;
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+
+  header ul li {
+    margin: 2px;
+  }
+
+  header ul li a {
+    display: inline-block;
+  }
+
+  .imgBox {
+    margin-bottom: 50px;
+  }
+
+  @keyframes animate {
+    0%,
+    100% {
+      transform: translateY(-20px);
+    }
+    50% {
+      transform: translateY(20px);
+    }
+  }
+
+  .content a {
+    font-size: 1em;
+    padding: 10px 20px;
+  }
+
+  .sci {
+    position: relative;
+    flex-direction: row;
+    left: 0;
+    gap: 30px;
+  }
+
+  .credit {
+    position: relative;
+    bottom: initial;
+    right: inherit;
+    width: 100%;
+    text-align: center;
+    margin-top: 20px;
+  }
+
+  .credit a {
+    color: #000;
+  }
+}
+
+@media (max-width: 650px) {
+  .content h2 {
+    font-size: 1.5em;
+  }
+
+  .content p {
+    font-size: 1em;
+  }
+
+  .imgBox img {
+    max-width: 300px;
+  }
+}
+
+@media (max-height: 600px) {
+  .container .content {
+    padding: 30px;
+  }
 }
